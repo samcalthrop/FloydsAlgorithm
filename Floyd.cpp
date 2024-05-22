@@ -71,6 +71,7 @@ void Network::floyd() {
                 }
             }
         }
+        // print each iteration:
         // std::cout << std::endl;
         // std::cout << "ITERATION " << iteration << std::endl;
         // std::cout << std::endl;

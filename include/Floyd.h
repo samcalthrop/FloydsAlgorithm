@@ -17,14 +17,16 @@ public:
     std::vector<std::vector<std::string>> nmatrix; // node matrix
     std::vector<std::string> nodes;
 
-    Network(std::string name, std::vector<std::vector<float>> d, std::vector<std::vector<std::string>> n) {
+    Network(std::string name, std::vector<std::vector<float>> d, std::vector<std::string> n) {
         if (d[0].size() == d.size()) {
-            if (n[0].size() == n.size()) {
+            if (n.size() == d.size()) {
                 this->name = name;
                 this->size = d[0].size();
                 this->dmatrix = d;
-                this->nmatrix = n;
-                this->nodes = n[0];
+                for (int i=0; i<this->size; ++i) {
+                    this->nmatrix.push_back(n);
+                }
+                this->nodes = n;
             }
             else {
                 this->~Network();

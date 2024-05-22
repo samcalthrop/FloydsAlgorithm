@@ -8,10 +8,7 @@ int main() {
         {7,   INF, 0, INF }, 
         {1,   9,   INF, 0 }
     };
-    std::vector<std::vector<std::string>> n = {
-        {"A", "B", "C", "D"}, 
-        {"A", "B", "C", "D"}, 
-        {"A", "B", "C", "D"}, 
+    std::vector<std::string> n = {
         {"A", "B", "C", "D"}
     };
 
