@@ -5,9 +5,9 @@
 
 #include <vector>
 #include <iostream>
-#include <iomanip>
 #include <string.h>
 #include <math.h>
+#include <stack>
 
 class Network {
 public:
@@ -43,5 +43,7 @@ public:
     void floyd();
     std::string shortest_path(std::string start, std::string end);
 };
+
+int get_index(std::vector<std::string> vec, std::string str);
 
 #endif

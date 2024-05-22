@@ -17,4 +17,6 @@ int main() {
     net.print();
     net.floyd();
     net.print();
+
+    std::cout << net.shortest_path("C", "D") << std::endl;
 }
