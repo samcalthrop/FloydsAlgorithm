@@ -78,3 +78,11 @@ void Network::floyd() {
     }
     return;
 }
+
+std::string Network::shortest_path(std::string start, std::string end) {
+    std::string path = "";
+    int distance = 0;
+    this->floyd();
+    path += "   " + std::to_string(distance);
+    return path;
+}

@@ -15,6 +15,7 @@ public:
     long long size;
     std::vector<std::vector<float>> dmatrix; // distance matrix
     std::vector<std::vector<std::string>> nmatrix; // node matrix
+    std::vector<std::string> nodes;
 
     Network(std::string name, std::vector<std::vector<float>> d, std::vector<std::vector<std::string>> n) {
         if (d[0].size() == d.size()) {
@@ -23,6 +24,7 @@ public:
                 this->size = d[0].size();
                 this->dmatrix = d;
                 this->nmatrix = n;
+                this->nodes = n[0];
             }
             else {
                 this->~Network();
@@ -37,7 +39,7 @@ public:
     void print();
 
     void floyd();
-    void shortest_path();
+    std::string shortest_path(std::string start, std::string end);
 };
 
 #endif
