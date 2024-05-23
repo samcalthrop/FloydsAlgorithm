@@ -77,20 +77,18 @@ void Network::floyd() {
         // std::cout << std::endl;
         // this->print();
     }
-    return;
 }
 
 std::string Network::shortest_path(std::string start, std::string end) {
     if (start == end) return "";
-    int index_current;
+    int index_start = get_index(this->nodes, start);
     int index_end = get_index(this->nodes, end);
     std::string path = "";
-    std::string current = start;
-    int distance = 0;
+    float distance = this->dmatrix[index_start][index_end];
     
     this->floyd();
 
-    while (current != end) {
+    while (start != end) {
 
         // plan:
         // check if node connecting current to end (let's call it `target`) is end.
@@ -99,13 +97,16 @@ std::string Network::shortest_path(std::string start, std::string end) {
         // if target == end, append end to path and end there.
         // otherwise keep going...
 
-        path += current;
-        index_current = get_index(this->nodes, current); // assuming get_index() works
-        if (this->nmatrix[index_current][index_end] == end) return path;
-        current = this->nmatrix[index_current][index_end];
+        path += start;
+        index_start = get_index(this->nodes, start); // assuming get_index() works
+        if (this->dmatrix[index_start][index_end] == INF) return "no path found\n";
+        start = this->nmatrix[index_start][index_end];
+
+        std::cout << "path: " << path << std::endl;
+        std::cout << "start: " << start << std::endl;
     }
 
-    path += "   " + std::to_string(distance);
+    path += end + "   " + std::to_string(distance);
     return path;
 }
 
